@@ -141,7 +141,7 @@ Insulated Tin Cable,1,CT::Tin Cable,1|Rubber Bar,1
 QuantumSuit Leggings,1,CT::Basic Machine Casing,2|Iridium Reinforced Plate,2|Glowstone Dust,2|NanoSuit Leggings,1
 QuantumSuit Boots,1,CT::Iridium Reinforced Plate,2|Lapotron Crystal,1|Rubber Boots,2|NanoSuit Boots,1
 Rubber Boots,1,CT::Rubber Bar,6|Wool,1
-Advanced Solar Generator,1,CT::Solar Generator,4|Enriched Alloy,2|Iron Ignot,3
+Advanced Solar Generator,1,CT::Solar Generator,4|Enriched Alloy,2|Iron Ingot,3
 Solar Generator,1,CT::Solar Panel,3|Enriched Alloy,2|Osmium Dust,2|Iron Ingot,1|Energy Tablet,1
 Solar Panel,1,CT::Glass Pane,3|Redstone,2|Enriched Alloy,1|Osmium Ingot,3
 Graphite Bar,1,Induction Smelter::Coal,1
