@@ -1,0 +1,147 @@
+Basic Gas Tank,1,CT::Osmium Ingot,4|Redstone,4
+Thermal Evaporation Block,4,CT::Steel Ingot,4|Copper Ingot,1
+Thermal Evaporation Valve,1,CT::Advanced Control Circuit,1|Thermal Evaporation Block,4
+Thermal Evaporation Controller,1,CT::Glass Pane,1|Bucket,1|Advanced Control Circuit,2|Thermal Evaporation Block,5
+Advanced Control Circuit,1,CT::Basic Control Circuit,1|Enriched Alloy,2
+Basic Control Circuit,1,Metallurgic Infuser::Redstone,1|Osmium Ingot,1
+Heat Generator,1,CT::Osmium Ingot,1|Furnace,1|Wood Planks,2|Copper Ingot,2|Iron Ingot,3
+Basic Thermodynamic Conductor,8,CT::Copper Ingot,1|Steel Ingot,2
+Transfer Node (Liquids),4,CT::Ender Pearl,1|Transfer Pipe,1|Bucket,1|Lapis Lazuli,2|Iron Ingot,2
+World Interaction Upgrade,1,CT::Iron Pickaxe,1|Iron Ingot,4|Lapis Lazuli,4
+Pressurized Tube,8,CT::Glass,1|Steel Ingot,2
+Fluid Conduit,8,CT::Quite Clear Glass,3|Conduit Binder,6
+Conduit Binder,4,Furnace::Binder Composite,1
+Binder Composite,8,CT::Clay,1|Sand,2|Gravel,6
+Electrolytic Separator,1,CT::Electrolytic Core,1|Redstone,2|Enriched Alloy,2|Iron Ingot,4
+Electrolytic Core,1,CT::Gold Dust,1|Iron Dust,1|Osmium Dust,2|Enriched Alloy,5
+Enriched Alloy,1,Metallurgic Infuser::Redstone,1|Iron Ingot,1
+Chemical Infuser,1,CT::Dynamic Tank,1|Basic Gas Tank,2|Basic Control Circuit,2|Enriched Alloy,4
+Dynamic Tank,4,CT::Bucket,1|Steel Ingot,4
+Steel Ingot,1,Same::Refined Iron Ingot,1
+Refined Iron Ingot,1,Induction Smelter::Iron Ingot,1|Pulverized Coal,1
+Chemical Injection Chamber,1,CT::Elite Control Circuit,2|Gold Ingot,2|Reinforced Alloy,4|Purification Chamber,1
+Elite Control Circuit,1,CT::Advanced Control Circuit,1|Reinforced Alloy,2
+Advanced Control Circuit,1,CT::Basic Control Circuit,1|Enriched Alloy,2
+Reinforced Alloy,1,Metallurgic Infuser::Diamond Dust,1|Enriched Alloy,1
+Steel Casing,1,CT::Osmium Ingot,1|Steel Ingot,4|Glass,4
+Purification Chamber,1,CT::Advanced Control Circuit,2|Osmium Ingot,2|Enriched Alloy,4|Enrichment Chamber,1
+Crusher,1,CT::Steel Casing,1|Lava Bucket,2|Basic Control Circuit,2|Redstone,4
+Enrichment Chamber,1,CT::Steel Casing,1|Iron Ingot,2|Basic Control Circuit,2|Redstone,4
+Energized Smelter,1,CT::Steel Casing,1|Glass,2|Basic Control Circuit,2|Redstone,4
+Chemical Oxidizer,1,CT::Dynamic Tank,1|Basic Gas Tank,1|Personal Chest,1|Basic Control Circuit,2|Enriched Alloy,4
+Personal Chest,1,CT::Glass,1|Basic Control Circuit,1|Chest,2|Steel Ingot,5
+Rotary Condensentrator,1,CT::Basic Fluid Tank,1|Basic Gas Tank,1|Basic Control Circuit,2|Glass,4|Energy Tablet,1
+Basic Fluid Tank,1,CT::Redstone,4|Iron Ingot,4
+Energy Tablet,1,CT::Enriched Alloy,2|Gold Ingot,3|Redstone,4
+Chemical Dissolution Chamber,1,CT::Atomic Alloy,1|Enriched Alloy,2|Basic Gas Tank,2|Basic Control Circuit,4
+Atomic Alloy,1,Metallurgic Infuser::Refined Obsidian Dust,1|Reinforced Alloy,1
+Refined Obsidian Dust,1,Metallurgic Infuser::Diamond Dust,1|Obsidian Dust,1
+Chemical Washer,1,CT::Steel Casing,1|Bucket,1|Basic Gas Tank,1|Enriched Alloy,2|Basic Control Circuit,4
+Chemical Crystallizer,1,CT::Steel Casing,1|Atomic Alloy,2|Basic Gas Tank,2|Basic Control Circuit,4
+Basic Universal Cable,8,CT::Redstone,1|Steel Ingot,2
+Iron Pickaxe,1,CT::Stick,2|Iron Ingot,3
+Wood Planks,4,CT::Wood,1
+Diamond Sword,1,CT::Diamond,2|Stick,1
+Stick,4,CT::Wood Planks,2
+Door,3,CT::Wood Planks,6
+Reactor Casing,4,CT::Iron Ingot,4|Graphite Bar,4|Yellorium Ingot,1
+Reactor Glass,1,CT::Glass,2|Reactor Casing,1
+Reactor Controller,1,CT::Yellorium Ingot,2|Diamond,1|Redstone,1|Reactor Casing,4
+Yellorium Fuel Rod,1,CT::Iron Ingot,6|Graphite Bar,2|Yellorium Ingot,1
+Reactor Control Rod,1,CT::Graphite Bar,3|Redstone,1|Yellorium Ingot,1|Reactor Casing,4
+Reactor Access Port,1,CT::Piston,1|Chest,1|Reactor Casing,4
+Reactor Coolant Port,1,CT::Bucket,1|Piston,1|Iron Ingot,2|Reactor Casing,4
+Resonant Ender Bucket,1,Magma Crucible/Fluid Transposer::Ender Pearl,4
+Transfer Pipe,8,CT::Stone Slab,6|Glass,2|Redstone,1
+Speed Upgrade,4,CT::Block of Redstone,4|Gold Ingot,2|Gold Nugget,3
+Turbine Housing,4,CT::Iron Ingot,4|Graphite Bar,2|Nether Quartz,2|Cyanite Ingot,1
+Turbine Glass,1,CT::Glass,2|Turbine Housing,1
+Turbine Controller,1,CT::Diamond,1|Blutonium Ingot,2|Turbine Housing,4
+Turbine Power Port,1,CT::Redstone,4|Turbine Housing,4
+Turbine Rotor Bearing,1,CT::Diamond,3|Turbine Rotor Shaft,2|Turbine Housing,4
+Turbine Fluid Port,1,CT::Bucket,1|Piston,1|Iron Ingot,2|Turbine Housing,4
+Turbine Rotor Shaft,1,CT::Iron Ingot,2|Cyanite Ingot,1
+Turbine Rotor Blade,1,CT::Iron Ingot,2|Cyanite Ingot,1
+Crescent Hammer,1,CT::Iron Ingot,3|Tin Ingot,1
+Cyanite Reprocesssor,1,CT::Iron Ingot,1|Piston,2|Redstone,1|Yellorium Fuel Rod,1|Reactor Casing,4
+Block of Redstone,1,CT::Redstone,9
+Harvester,1,CT::Plastic Sheets,3|Shears,1|Factory Machine Block,1
+Factory Machine Block,3,CT::Plastic Sheets,3|Stone,3
+Plastic Sheets,4,CT::Raw Plastic,4
+Planter,1,CT::Plastic Sheets,3|Flower Pot,2|Piston,1|Factory Machine Block,1
+Piston,1,CT::Wood Planks,3|Cobblestone,4|Iron Ingot,1|Redstone,1
+Flower Pot,1,CT::Brick,3
+Brick,1,Furnace::Clay,1
+Sludge Boiler,1,CT::Plastic Sheets,3|Furnace,3|Factory Machine Block,1
+Furnace,1,CT::Cobblestone,8
+Solar Generator x64,1,CT::Solar Generator x8,8|Transfer Node (Hyper Energy),1
+Transfer Node (Hyper Energy),1,QED::Transfer Node (Energy),4|Bedrockium Ingot,1
+Transfer Node (Energy),1,QED::Gold Ingot,4|Transfer Node (Itens),4|Breadth-First Search Upgrade,1
+Breadth-First Search Upgrade,3,CT::Block of Redstone,6|Speed Upgrade,2|Depth-First Search Upgrade,1
+Depth-First Search Upgrade,3,CT::Block of Redstone,4|Speed Upgrade,3|Iron Ingot,2
+Solar Generator x8,1,CT::Solar Generator x1,8|Transfer Node (Energy)
+Solar Generator x1,1,CT::Lapis Lazuli,2|Nether Quartz,3|Redstone,2|Block of Diamond,1|Furnace,1
+NanoSuit Bodyarmor,1,CT::Energy Crystal,1|Carbon Plate,8
+Energy Crystal,1,Compressor::Energium Dust,9
+Energium Dust,9,CT::Redstone,5|Diamond Dust,4
+Carbon Plate,1,Compressor::Raw Carbon Mesh,1
+Raw Carbon Mesh,1,CT::Raw Carbon Fibre,2
+Raw Carbon Fibre,1,CT::Pulverized Coal,4
+NanoSuit Leggings,1,CT::Energy Crystal,1|Carbon Plate,6
+NanoSuit Boots,1,CT::Energy Crystal,1|Carbon Plate,4
+NanoSuit Helmet,1,CT::Energy Crystal,1|Carbon Plate,4|Nightvision Goggles,1
+Nightvision Goggles,1,CT::Advanced Heat Exchanger,2|Advanced RE-Battery,1|Luminator,2|Reinforced Glass,1|Rubber Bar,2|Advanced Control Circuit,1
+Advanced Heat Exchanger,1,CT::Lapis Lazuli Plate,4|Basic Control Circuit,2|Heat Exchanger,2|Copper Plate,1
+Heat Exchanger,1,CT::Basic Control Circuit,1|Copper Plate,5|Tin Plate,3
+Copper Plate,1,Metal Former (Rolling)::Copper Ingot,1
+Tin Plate,1,Metal Former (Rolling)::Tin Ingot,1
+Lapis Lazuli Plate,1,Compressor::Lapis Lazuli Dust,1
+Advanced RE-Battery,1,CT::Insulated Copper Cable,2|Bronze Item Casing,5|Sulfur Dust,1|Pulverized Lead,1
+Insulated Copper Cable,1,CT::Rubber Bar,1|Copper Cable,1
+Copper Cable,3,Metal Former (Extruding)::Copper Ingot,1
+Bronze Item Casing,2,Metal Former (Rolling)::Bronze Plate,1
+Bronze Plate,1,Metal Former (Rolling)::Bronze Ingot,1
+Bronze Ingot,4,Smeltery::Copper Ingot,3|Tin Ingot,1
+Luminator,8,CT::Iron Item Casing,2|Insulated Copper Cable,1|Tin Cable,1|Glass,5
+Iron Item Casing,2,Metal Former (Rolling)::Iron Plate,1
+Iron Plate,1,Metal Former (Rolling)::Iron Ingot,1
+Tin Cable,3,Metal Former (Extruding)::Tin Ingot,1
+Reinforced Glass,7,CT::Glass,7|Advanced Alloy,2
+Advanced Alloy,1,Compressor::Mixed Metal Ingot,1
+Mixed Metal Ingot,2,CT::Iron Plate,3|Bronze Plate,3|Tin Plate,3
+Rubber Bar,1,Smelter::Raw Rubber,1
+Molecular Transformer,1,CT::Advanced Machine Casing,4|EV-Transformer,2|Advanced Circuit,2|MT Core,1
+Advanced Machine Casing,1,CT::Refined Iron Plate,4|Advanced Alloy,2|Carbon Plate,2|Basic Machine Casing,1
+Basic Machine Casing,1,CT::Iron Plate,8
+Refined Iron Plate,1,Metal Former (Rolling)::Refined Iron Ingot,1
+EV-Transformer,1,CT::Advanced Control Circuit,1|Insulated HV Cable,2|HV-Transformer,1|Lapotron Crystal,1
+Insulated HV Cable,1,CT::Rubber Bar,3|HV Cable,1
+HV Cable,4,Metal Former (Extruding)::Iron Ingot,1
+HV-Transformer,1,CT::Basic Control Circuit,1|Insulated Gold Cable,2|Advanced RE-Battery,1|MV-Transformer,1
+Insulated Gold Cable,1,CT::Rubber Bar,2|Gold Cable,1
+Gold Cable,4,Metal Former (Extruding)::Gold Ingot,1
+MV-Transformer,1,CT::Insulated Copper Cable,2|Basic Machine Casing,1
+Advanced RE-Battery,1,CT::Insulated Copper Cable,2|Bronze Item Casing,5|Sulfur Dust,1|Pulverized Lead,1
+Lapotron Crystal,1,CT::Lapis Lazuli Dust,6|Advanced Control Circuit,2|Energy Crystal,1
+Advanced Circuit,1,CT::Redstone,4|Lapis Lazuli,2|Glowstone Dust,2|Basic Control Circuit,1
+MT Core,1,CT::Irradiant Glass Pane,6|Thick Neutron Reflector,2
+Irradiant Glass Pane,6,CT::Reinforced Glass,6|Irradiant Uranium,2|Glowstone Dust,1
+Irradiant Uranium,1,CT::Glowstone Dust,4|Yellorium Ingot,1
+Thick Neutron Reflector,1,CT::Copper Plate,5|Neutron Reflector,4
+Neutron Reflector,1,CT::Tin Dust,4|Pulverized Coal,4|Copper Plate,1
+QuantumSuit Helmet,1,CT::Reinforced Glass,2|Iridium Reinforced Plate,2|Advanced Control Circuit,2|Lapotron Crystal,1|NanoSuit Helmet,1|Scuba Helmet,1
+Iridium Reinforced Plate,1,CT::Iridium Ore,4|Advanced Alloy,4|Diamond,1
+Scuba Helmet,1,CT::Orange Dye,1|Glass,1|Iron Bars,1|Rubber Bar,4
+Iron Bars,16,CT::Iron Ingot,6
+QuantumSuit Bodyarmor,1,CT::Advanced Alloy,2|Iridium Reinforced Plate,4|NanoSuit Bodyarmor,1|Lapotron Crystal,1|Electric Jetpack,1
+Electric Jetpack,1,CT::Iron Item Casing,4|Glowstone,2|Advanced Control Circuit,1|BatBox,1
+BatBox,1,CT::Wood Planks,5|Insulated Tin Cable,1|RE-Battery,3
+RE-Battery,1,CT::Tin Item Casing,4|Insulated Tin Cable,1|Redstone,2
+Insulated Tin Cable,1,CT::Tin Cable,1|Rubber Bar,1
+QuantumSuit Leggings,1,CT::Basic Machine Casing,2|Iridium Reinforced Plate,2|Glowstone Dust,2|NanoSuit Leggings,1
+QuantumSuit Boots,1,CT::Iridium Reinforced Plate,2|Lapotron Crystal,1|Rubber Boots,2|NanoSuit Boots,1
+Rubber Boots,1,CT::Rubber Bar,6|Wool,1
+Advanced Solar Generator,1,CT::Solar Generator,4|Enriched Alloy,2|Iron Ignot,3
+Solar Generator,1,CT::Solar Panel,3|Enriched Alloy,2|Osmium Dust,2|Iron Ingot,1|Energy Tablet,1
+Solar Panel,1,CT::Glass Pane,3|Redstone,2|Enriched Alloy,1|Osmium Ingot,3
+Graphite Bar,1,Induction Smelter::Coal,1

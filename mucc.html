@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Minecraft Ultimate Recipe-Calculator</title>
+    <link rel="icon" type="image/png" href="sword.png">
+  </head>
+  <body style="font-family: monospace">
+    <img src="minecraft-logo.png" style="position: absolute; top: 0; right: 0;">
+    <h1>Minecraft Ultimate Crafting-Calculator</h1>
+
+    <input type="file" id="recipe_file" style="display:none"><a href="javascript:document.getElementById('recipe_file').click()" style="text-decoration: none"><img src="chest.png"> Load recipes</a> <span id="recipe_span"> (0 recipes loaded)</span><br />
+    <br/ >
+    Crafting Table:<br />
+    <select id="craft_select">
+      <option value=""></option>
+    </select>
+    <input type="button" id="craft_add" style="display:none"><a href="javascript:document.getElementById('craft_add').click()" style="text-decoration: none"><img src="hopper.png"></a>
+    <div>
+      <textarea id="craft_area" style="width: 98%"></textarea>
+    </div>
+	  My Chest <i>(already have)</i>:<br />
+    <select id="chest_select">
+      <option value=""></option>
+    </select>
+    <input type="button" id="chest_add" style="display:none"><a href="javascript:document.getElementById('chest_add').click()" style="text-decoration: none"><img src="hopper.png"></a>
+    <div>
+      <textarea id="chest_area" style="width: 98%"></textarea>
+    </div>
+    <input type="button" id="calculate" style="display:none"><a href="javascript:document.getElementById('calculate').click()" style="text-decoration: none"><img src="crafting.png"> Calculate</a>
+    <div style="line-height: 120%">
+      <span id="calculate_span"></span>
+    </div>
+    <script src="mucc.js"></script>
+  </body>
+</html>
