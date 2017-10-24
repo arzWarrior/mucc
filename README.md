@@ -37,5 +37,6 @@ O mucc está passando por mudanças constantes, mas qualquer contribuição é b
 
 ## License
 
--Minecraft content and materials are trademarks and copyrights of Mojang
--mucc livre para uso
+Minecraft content and materials are trademarks and copyrights of Mojang
+
+mucc livre para uso
