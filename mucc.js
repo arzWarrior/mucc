@@ -6,7 +6,7 @@ window.onload = function() {
   var craft_input = document.getElementById('craft_input');
   var craft_add = document.getElementById('craft_add');
   var chest_area = document.getElementById('chest_area');
-    var calculate = document.getElementById('calculate');
+  var calculate = document.getElementById('calculate');
   var recipe_span = document.getElementById('recipe_span');
   var calculate_span = document.getElementById('calculate_span');
   var recipes = [];
@@ -14,6 +14,8 @@ window.onload = function() {
   var resources = [];
   var crafting = [];
 
+
+  // abre e fecha o conteúdo da div checada
   function colapse() {
     var cbs = document.getElementsByName("cb");
     var dvs = document.getElementsByName("dv");
@@ -22,11 +24,15 @@ window.onload = function() {
        dvs[i].style.display = (cbs[i].checked ? "none" : "block");
     }
   }
-  
+
+
+  // altera a cor de fundo
   function highlight() {
     this.style.color = (this.style.color == "red" ? "black" : "red");
   }
-  
+
+
+  // percorre o vetor e retorna a posição do item desejado
   function find(item, lista) {
     var i = 0;
     for(let l of lista) {
@@ -38,6 +44,8 @@ window.onload = function() {
     return -1;
   }
 
+
+  // retorna o valor convertido em grupos de 64 unidades
   function to_packs(qtd) {
     var p = Math.floor(qtd/64);
     var r = (qtd % 64);
@@ -46,27 +54,7 @@ window.onload = function() {
   }
 
 
-  function calcula(ident, item, qtd) {
-    var texto = "", 
-    tmp = find(item,recipes);
-  
-    if(tmp >= 0) {
-      r = recipes[tmp];
-
-      texto += " ".repeat(ident*3) + " " + qtd + "x " + r[NOME] + "\n";
-      
-      for(let r2 of r[ITENS_NECESSARIOS])
-        texto += calcula(ident+1, r2[NOME], Math.ceil(qtd/parseInt(r[QUANTIDADE]))*parseInt(r2[QUANTIDADE]));
-    }
-
-    else {
-      texto += " ".repeat(ident*3) + " " + qtd + "x " + item + "\n";
-    }
-  
-    return texto;
-  }
-
-
+  // retorna texto com os itens necessários (apenas primeiro nível) para craftar a quantidade do item desejado
   function calcula1(ident, item, qtd) {
   
     var texto = "", 
@@ -80,7 +68,8 @@ window.onload = function() {
       texto += "<div name=\"dv\">\n";
       for(let r2 of r[ITENS_NECESSARIOS])
         texto += "&nbsp;&nbsp;&nbsp;" + qtdReal*parseInt(r2[QUANTIDADE]) + "x " + r2[NOME] + "<br />\n";
-	  texto += "</div>\n";
+
+      texto += "</div>\n";
     }
   
     else {
@@ -90,8 +79,10 @@ window.onload = function() {
     return texto;
   }
 
+
+  // função recursiva que carrega os vetores de itens e recursos necessários para craftar a quantidade do item desejado
   function calculaX(ident, item, qtd) {
-  // ["Piston",1,"Crafting Table",[["Wood Planks",3],["Cobblestone",4],["Redstone",1],["Iron Ingot",1]]]
+    // ["Piston",1,"Crafting Table",[["Wood Planks",3],["Cobblestone",4],["Redstone",1],["Iron Ingot",1]]]
     var tmp = find(item,recipes);
     if(tmp >= 0) {
       var r = recipes[tmp];
@@ -138,8 +129,9 @@ window.onload = function() {
       }
     }
   }
-  
 
+  
+  // carrega o arquivo de receitas
   recipe_file.addEventListener('change', function(e) {
     var file = recipe_file.files[0];
     var textType = /text.*/;
@@ -167,14 +159,14 @@ window.onload = function() {
 
             recipes.push([part1[0],part1[1],part1[2],part2]);
 
-			crafting.push(part1[0]);
-			
+            crafting.push(part1[0]);
+
             i++
           }
         }
 
-		crafting.sort();
-		
+        crafting.sort();
+
         recipe_span.innerText = " (" + i + " recipes loaded)";
       }
 
@@ -186,22 +178,25 @@ window.onload = function() {
 
   });
 
-  
+
+  // autocomplete do JQuery
   $("#craft_input").autocomplete({
-      source: crafting
+      source: crafting,
+      minLength: 3
   });
+
   
-  
+  // transfere o item selecionado para a lista de itens a craftar
   craft_add.addEventListener('click', function(e) {
-	if(craft_input.value != "") {
+    if(craft_input.value != "") {
       craft_area.value += (craft_area.value != "" ? "\n" : "") + "1," + craft_input.value;
-	  craft_input.value = "";
-	}
+      craft_input.value = "";
+    }
   });
 
- 
-  calculate.addEventListener('click', function(e) {
 
+  // botão calcular
+  calculate.addEventListener('click', function(e) {
     var linhas = chest_area.value.split("\n");
     var tmp;
 
@@ -215,7 +210,7 @@ window.onload = function() {
         itens.push([tmp[1], parseInt("-" + tmp[0]), parseInt(tmp[0]), 0]);
       }
     }
-	
+
     linhas = craft_area.value.split("\n");
 
     for(let ln of linhas) {

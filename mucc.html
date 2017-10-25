@@ -2,34 +2,36 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Minecraft Ultimate Recipe-Calculator</title>
     <link rel="icon" type="image/png" href="sword.png">
-	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   </head>
-  <body style="font-family: monospace">
-    <img src="bigcrafting.png" style="position: absolute; top: 0; right: 0;">
-    <h1>Minecraft Ultimate Crafting-Calculator</h1>
-    <input type="file" id="recipe_file" style="display:none"><a href="javascript:document.getElementById('recipe_file').click()" style="text-decoration: none"><img src="chest.png"> Load recipes</a> <span id="recipe_span"> (0 recipes loaded)</span><br />
-    <br/ >
-    Crafting Table:<br />
-	<div>
-      <input id="craft_input">
-	  <input type="button" id="craft_add" style="display:none"><a href="javascript:document.getElementById('craft_add').click()" style="text-decoration: none"><img src="hopper.png"></a>
-    </div>
-    <div>
-      <textarea id="craft_area" style="width: 98%"></textarea>
-    </div>
-	<br />
-	My Chest <i>(already have)</i>:<br />
-    <div>
-      <textarea id="chest_area" style="width: 98%"></textarea>
-    </div>
-    <input type="button" id="calculate" style="display:none"><a href="javascript:document.getElementById('calculate').click()" style="text-decoration: none"><img src="crafting.png"> Calculate</a>
-    <div style="line-height: 120%">
-      <span id="calculate_span"></span>
+  <body style="font-family: monospace; background-image: url(texture.jpg)">
+    <div style="max-width: 740px; margin: auto; padding: 10px; background-color: white">
+      <img src="bigcrafting.png" style="float: right">
+      <h1>Minecraft Ultimate Crafting-Calculator</h1>
+      <input type="file" id="recipe_file" style="display:none"><a href="javascript:document.getElementById('recipe_file').click()" style="text-decoration: none"><img src="chest.png"> Load recipes</a> <span id="recipe_span"> (0 recipes loaded)</span><br />
+      <br/ >
+      Crafting Table:<br />
+      <div>
+        <input id="craft_input">
+        <input type="button" id="craft_add" style="display:none"><a href="javascript:document.getElementById('craft_add').click()" style="text-decoration: none"><img src="hopper.png"></a>
+      </div>
+      <div>
+        <textarea id="craft_area" style="width: 100%"></textarea>
+      </div>
+      <br />
+      My Chest <i>(already have)</i>:<br />
+      <div>
+        <textarea id="chest_area" style="width: 98%"></textarea>
+      </div>
+      <input type="button" id="calculate" style="display:none"><a href="javascript:document.getElementById('calculate').click()" style="text-decoration: none"><img src="crafting.png"> Calculate</a>
+      <div style="line-height: 120%">
+        <span id="calculate_span"></span>
+      </div>
     </div>
     <script src="mucc.js"></script>
   </body>

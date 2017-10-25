@@ -1,6 +1,6 @@
 ## Synopsis
 
-Minecraft Ultimate Crafting-Calculator exibe quantos materiais e itens são necessários para craftar os itens selecionados, baseado em um arquivo contendos as receitas dos itens
+Minecraft Ultimate Crafting-Calculator exibe quantos itens e recursos são necessários para craftar os itens selecionados, baseado em um arquivo contendos as receitas dos itens
 
 ## Code Example
 
@@ -15,9 +15,9 @@ Piston,1,CT::Wood Planks,3|Cobblestone,4|Iron Ingot,1|Redstone,1
 
 ## Motivation
 
-Mods como NEI (Not Enough Itens) facilitam em muito a vida do jogador mostrando como craftar os itens. Mas se você for craftar um item complexo ou multi-bloco, terá que navegar por todos os itens que o compoem.
+Mods como NEI (Not Enough Itens) facilitam em muito a vida do jogador mostrando como craftar os itens. Mas se você for craftar um item complexo ou multi-bloco, terá que ficar entrando em cada um dos itens que o compoem.
 
-Para isso o **mucc** foi criado, com uma interface web, uma vez carregado o aquivo de receitas, ele gera a lista de todos os materiais necessários e quais itens devem ser craftados para chegar nos itens que você deseja.
+Para isso o **mucc** foi criado, com uma interface web, uma vez carregado o aquivo de receitas, ele gera a lista de todos os recursos necessários e quais itens devem ser craftados para chegar nos itens que você deseja.
 
 ## Installation
 
@@ -25,7 +25,7 @@ Baixar todos os arquivos e abrir o mucc.html em um navegador que suporte javascr
 
 ## API Reference
 
-Nada a comentar
+Utilizando JQuery e JQuery-ui
 
 ## Tests
 
