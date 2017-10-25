@@ -3,17 +3,16 @@ window.onload = function() {
   
   var recipe_file = document.getElementById('recipe_file');
   var craft_area = document.getElementById('craft_area');
-  var craft_select = document.getElementById('craft_select');
+  var craft_input = document.getElementById('craft_input');
   var craft_add = document.getElementById('craft_add');
   var chest_area = document.getElementById('chest_area');
-  var chest_select = document.getElementById('chest_select');
-  var chest_add = document.getElementById('chest_add');
-  var calculate = document.getElementById('calculate');
+    var calculate = document.getElementById('calculate');
   var recipe_span = document.getElementById('recipe_span');
   var calculate_span = document.getElementById('calculate_span');
   var recipes = [];
   var itens = [];
   var resources = [];
+  var crafting = [];
 
   function colapse() {
     var cbs = document.getElementsByName("cb");
@@ -168,15 +167,14 @@ window.onload = function() {
 
             recipes.push([part1[0],part1[1],part1[2],part2]);
 
-            var opt = document.createElement("option");
-            opt.text = part1[0];
-            opt.value = i;
-            craft_select.add(opt);
-            
+			crafting.push(part1[0]);
+			
             i++
           }
         }
 
+		crafting.sort();
+		
         recipe_span.innerText = " (" + i + " recipes loaded)";
       }
 
@@ -188,26 +186,22 @@ window.onload = function() {
 
   });
 
+  
+  $("#craft_input").autocomplete({
+      source: crafting
+  });
+  
+  
   craft_add.addEventListener('click', function(e) {
-    if(craft_select.selectedIndex > 0) {
-      craft_area.value += (craft_area.value != "" ? "\n" : "") + "1," + craft_select.options[craft_select.selectedIndex].text;
-      craft_select.selectedIndex = 0;
-    }
+	if(craft_input.value != "") {
+      craft_area.value += (craft_area.value != "" ? "\n" : "") + "1," + craft_input.value;
+	  craft_input.value = "";
+	}
   });
-  
-  chest_add.addEventListener('click', function(e) {
-    if(chest_select.selectedIndex > 0) {
-      chest_area.value += (chest_area.value != "" ? "\n" : "") + "1," + chest_select.options[chest_select.selectedIndex].text;
-      chest_select.selectedIndex = 0;
-    }
-  });
-  
+
+ 
   calculate.addEventListener('click', function(e) {
 
-    while(chest_select.options.length > 1) {
-      chest_select.remove(1);
-    }
-  
     var linhas = chest_area.value.split("\n");
     var tmp;
 
@@ -239,14 +233,8 @@ window.onload = function() {
     itens.sort(function(a,b){return b[3] - a[3]});
 
     for(let i of itens) {
-      if(i[1] > 0) {
+      if(i[1] > 0)
         texto += calcula1(1,i[0],i[1]);
-        
-        var opt = document.createElement("option");
-        opt.text = i[0];
-        opt.value = i[0];
-        chest_select.add(opt);
-      }
     }
 
     calculate_span.innerHTML = texto;
