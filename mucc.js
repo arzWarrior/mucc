@@ -1,5 +1,9 @@
 window.onload = function() {
   var NOME = 0,  QUANTIDADE = 1, ONDE_CRAFTAR = 2, ITENS_NECESSARIOS = 3, SOBRANDO = 2, ORDEM = 3;
+  var fundos = ["brick.png","clay.png","coarse_dirt.png","cobblestone.png","cobblestone_mossy.png",
+  "dirt.png","end_stone.png","farmland_dry.png","gravel.png","hardened_clay.png","ice.png",
+  "log_oak.png","planks_birch.png","planks_oak.png","prismarine_bricks.png","prismarine_dark.png",
+  "red_sand.png","sand.png","stone.png","stonebrick.png","stonebrick_mossy.png"];
   
   var recipe_file = document.getElementById('recipe_file');
   var craft_area = document.getElementById('craft_area');
@@ -14,6 +18,9 @@ window.onload = function() {
   var resources = [];
   var crafting = [];
 
+
+  // trocar o background aleatoriamente
+  document.body.style.background = 'url(images/' + fundos[Math.floor(Math.random() * fundos.length)] + ')';
 
   // abre e fecha o conteúdo da div checada
   function colapse() {
@@ -167,13 +174,13 @@ window.onload = function() {
 
         crafting.sort();
 
-        recipe_span.innerText = " (" + i + " recipes loaded)";
+        recipe_span.innerText = " (" + i + " receitas carregadas)";
       }
 
       reader.readAsText(file);  
 
     } else {
-      areaTexto.innerHTML = "File not supported!";
+      areaTexto.innerHTML = "Arquivo não suportado!";
     }
 
   });
@@ -182,7 +189,7 @@ window.onload = function() {
   // autocomplete do JQuery
   $("#craft_input").autocomplete({
       source: crafting,
-      minLength: 3
+      minLength: 1
   });
 
   
@@ -195,7 +202,7 @@ window.onload = function() {
   });
 
 
-  // botão calcular
+  // botão calcular!
   calculate.addEventListener('click', function(e) {
     var linhas = chest_area.value.split("\n");
     var tmp;
@@ -218,8 +225,6 @@ window.onload = function() {
       calculaX(1,tmp[1],parseInt(tmp[0]));
     }
 
-    texto += "<br />\n";
-  
     for(let r of resources)
       texto += r[NOME] + ": " + to_packs(r[QUANTIDADE]) + " <input type=\"checkbox\"><br />\n";
   
@@ -243,6 +248,6 @@ window.onload = function() {
 
     for(var i=0;i<divs.length;i++)
       divs[i].addEventListener('click', highlight);
-  
+
   });
 }
