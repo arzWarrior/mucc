@@ -29,7 +29,7 @@ Utilizando JQuery e JQuery-ui
 
 ## Tests
 
-Abra o mucc.html, carregue o arquivo de receitas, selecione um item no combo e clique no calculate
+Abra o mucc.html, carregue o arquivo de receitas, selecione um item no campo de busca, clique no funil e depois no calcular
 
 ## Contributors
 
