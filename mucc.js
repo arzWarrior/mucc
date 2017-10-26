@@ -39,7 +39,7 @@ window.onload = function() {
   }
 
 
-  // percorre o vetor e retorna a posição do item desejado
+  // percorre o vetor e retorna a posição do item desejado ou -1
   function find(item, lista) {
     var i = 0;
     for(let l of lista) {
@@ -69,12 +69,12 @@ window.onload = function() {
   
     if(tmp >= 0) {
       var r = recipes[tmp];
-      var qtdReal = Math.ceil(qtd/parseInt(r[QUANTIDADE]));
+      var qtdReal = Math.ceil(qtd/r[QUANTIDADE]);
 
-      texto += qtd + "x " + r[NOME] + (qtdReal*parseInt(r[QUANTIDADE]) > qtd ? " (" + qtdReal*parseInt(r[QUANTIDADE]) + "x)" : "") + (r[ONDE_CRAFTAR] != "CT" ? " - " + r[ONDE_CRAFTAR] : "") + " <input type=\"checkbox\" name=\"cb\"><br />\n";
+      texto += qtd + "x " + r[NOME] + (qtdReal*r[QUANTIDADE] > qtd ? " (" + qtdReal*r[QUANTIDADE] + "x)" : "") + (r[ONDE_CRAFTAR] != "CT" ? " - " + r[ONDE_CRAFTAR] : "") + " <input type=\"checkbox\" name=\"cb\"><br />\n";
       texto += "<div name=\"dv\">\n";
       for(let r2 of r[ITENS_NECESSARIOS])
-        texto += "&nbsp;&nbsp;&nbsp;" + qtdReal*parseInt(r2[QUANTIDADE]) + "x " + r2[NOME] + "<br />\n";
+        texto += "&nbsp;&nbsp;&nbsp;" + qtdReal*r2[QUANTIDADE] + "x " + r2[NOME] + "<br />\n";
 
       texto += "</div>\n";
     }
@@ -89,6 +89,7 @@ window.onload = function() {
 
   // função recursiva que carrega os vetores de itens e recursos necessários para craftar a quantidade do item desejado
   function calculaX(ident, item, qtd) {
+    // exemplo de uma linha do vetor de receitas
     // ["Piston",1,"Crafting Table",[["Wood Planks",3],["Cobblestone",4],["Redstone",1],["Iron Ingot",1]]]
     var tmp = find(item,recipes);
     if(tmp >= 0) {
@@ -109,18 +110,18 @@ window.onload = function() {
       if(qtd > 0) {
         // nao tinha o suficiente
         for(let r2 of r[ITENS_NECESSARIOS])
-          calculaX(ident+1, r2[NOME], Math.ceil(qtd/parseInt(r[QUANTIDADE]))*parseInt(r2[QUANTIDADE]));
+          calculaX(ident+1, r2[NOME], Math.ceil(qtd/r[QUANTIDADE])*r2[QUANTIDADE]);
         
         // atualizar lista de itens
         if(tmp >= 0) {
           itens[tmp][QUANTIDADE] += qtd;
-          itens[tmp][SOBRANDO] += (Math.ceil(qtd/parseInt(r[QUANTIDADE]))*parseInt(r[QUANTIDADE])) - qtd;
+          itens[tmp][SOBRANDO] += (Math.ceil(qtd/r[QUANTIDADE])*r[QUANTIDADE]) - qtd;
           if(itens[tmp][ORDEM] < ident)
             itens[tmp][ORDEM] = ident;
         }
 
         else {
-          itens.push([item, qtd, (Math.ceil(qtd/parseInt(r[QUANTIDADE]))*parseInt(r[QUANTIDADE])) - qtd, ident]);
+          itens.push([item, qtd, (Math.ceil(qtd/r[QUANTIDADE])*r[QUANTIDADE]) - qtd, ident]);
         }
       }
     }
@@ -140,6 +141,8 @@ window.onload = function() {
   
   // carrega o arquivo de receitas
   recipe_file.addEventListener('change', function(e) {
+    // exemplo de uma linha do arquivo de receitas
+    // Piston,1,CT::Wood Planks,3|Cobblestone,4|Iron Ingot,1|Redstone,1
     var file = recipe_file.files[0];
     var textType = /text.*/;
 
@@ -149,24 +152,26 @@ window.onload = function() {
       reader.onload = function(e) {
         var content = reader.result;
         var linhas = content.split("\n");
-        var temp, part1;
+        var temp, temp2, part_item;
         var i = 0;
 
         for(let ln of linhas) {
-          if(ln.length > 0) {
+          if((ln.length > 2) && (ln.substr(0,2) != "//")) {
 
-            var part2 = [];
+            var part_recipe = [];
 
             temp = ln.split("::");
-            part1 = temp[0].split(",");
+            part_item = temp[0].split(",");
 
             for(let t of temp[1].split("|")) {
-              part2.push(t.split(","));
+              temp2 = t.split(",");
+              part_recipe.push([temp2[0],parseInt(temp2[1])]);
             }
 
-            recipes.push([part1[0],part1[1],part1[2],part2]);
+            // ["Piston",1,"Crafting Table",[["Wood Planks",3],["Cobblestone",4],["Redstone",1],["Iron Ingot",1]]]
+            recipes.push([part_item[0],parseInt(part_item[1]),part_item[2],part_recipe]);
 
-            crafting.push(part1[0]);
+            crafting.push(part_item[0]);
 
             i++
           }
@@ -180,7 +185,7 @@ window.onload = function() {
       reader.readAsText(file);  
 
     } else {
-      areaTexto.innerHTML = "Arquivo não suportado!";
+      calculate_span.innerHTML = "Arquivo não suportado!";
     }
 
   });
@@ -204,50 +209,70 @@ window.onload = function() {
 
   // botão calcular!
   calculate.addEventListener('click', function(e) {
-    var linhas = chest_area.value.split("\n");
+    var linhas; 
     var tmp;
 
     resources = [];
     itens = [];
     texto = "";
 
-    for(let ln of linhas) {
-      if(ln.length > 0) {
-        tmp = ln.split(",");
-        itens.push([tmp[1], parseInt("-" + tmp[0]), parseInt(tmp[0]), 0]);
+    // verificar receitas carregadas
+    if(recipes.length > 0) {
+
+      // itens a descontar
+      linhas = chest_area.value.split("\n");
+      
+      for(let ln of linhas) {
+        if((ln.length > 2) && (ln.substr(0,2) != "//")) {
+          tmp = ln.split(",");
+          itens.push([tmp[1], parseInt("-" + tmp[0]), parseInt(tmp[0]), 0]);
+        }
+      }
+
+      // itens a craftar
+      linhas = craft_area.value.split("\n");
+
+      for(let ln of linhas) {
+        if((ln.length > 2) && (ln.substr(0,2) != "//")) {
+          tmp = ln.split(",");
+          calculaX(1,tmp[1],parseInt(tmp[0]));
+        }
+      }
+
+      // precisa de recursos
+      if(resources.length > 0) {
+
+        for(let r of resources)
+          texto += r[NOME] + ": " + to_packs(r[QUANTIDADE]) + " <input type=\"checkbox\"><br />\n";
+      
+        texto += "<br />\n";
+
+        itens.sort(function(a,b){return b[3] - a[3]});
+
+        for(let i of itens) {
+          if(i[1] > 0)
+            texto += calcula1(1,i[0],i[1]);
+        }
+
+        calculate_span.innerHTML = texto;
+
+        var checks = document.getElementsByName('cb');
+
+        for(var i = 0; i < checks.length; i++)
+          checks[i].addEventListener('change', colapse);
+
+        var divs = document.getElementsByName('dv');
+
+        for(var i=0;i<divs.length;i++)
+          divs[i].addEventListener('click', highlight);
+      }
+      else {
+        calculate_span.innerHTML = "Nenhum item para craftar!";
       }
     }
-
-    linhas = craft_area.value.split("\n");
-
-    for(let ln of linhas) {
-      tmp = ln.split(",");
-      calculaX(1,tmp[1],parseInt(tmp[0]));
+    else {
+      calculate_span.innerHTML = "Receitas não carregadas!";
     }
-
-    for(let r of resources)
-      texto += r[NOME] + ": " + to_packs(r[QUANTIDADE]) + " <input type=\"checkbox\"><br />\n";
-  
-    texto += "<br />\n";
-
-    itens.sort(function(a,b){return b[3] - a[3]});
-
-    for(let i of itens) {
-      if(i[1] > 0)
-        texto += calcula1(1,i[0],i[1]);
-    }
-
-    calculate_span.innerHTML = texto;
-
-    var checks = document.getElementsByName('cb');
-
-    for(var i = 0; i < checks.length; i++)
-      checks[i].addEventListener('change', colapse);
-
-    var divs = document.getElementsByName('dv');
-
-    for(var i=0;i<divs.length;i++)
-      divs[i].addEventListener('click', highlight);
 
   });
 }
