@@ -165,13 +165,13 @@ window.onload = function() {
 
             for(let t of temp[1].split("|")) {
               temp2 = t.split(",");
-              part_recipe.push([temp2[0],parseInt(temp2[1])]);
+              part_recipe.push([temp2[0].trim(),parseInt(temp2[1])]);
             }
 
             // ["Piston",1,"Crafting Table",[["Wood Planks",3],["Cobblestone",4],["Redstone",1],["Iron Ingot",1]]]
-            recipes.push([part_item[0],parseInt(part_item[1]),part_item[2],part_recipe]);
+            recipes.push([part_item[0].trim(),parseInt(part_item[1]),part_item[2].trim(),part_recipe]);
 
-            crafting.push(part_item[0]);
+            crafting.push(part_item[0].trim());
 
             i++
           }
@@ -225,7 +225,7 @@ window.onload = function() {
       for(let ln of linhas) {
         if((ln.length > 2) && (ln.substr(0,2) != "//")) {
           tmp = ln.split(",");
-          itens.push([tmp[1], parseInt("-" + tmp[0]), parseInt(tmp[0]), 0]);
+          itens.push([tmp[1].trim(), parseInt("-" + tmp[0]), parseInt(tmp[0]), 0]);
         }
       }
 
@@ -235,7 +235,7 @@ window.onload = function() {
       for(let ln of linhas) {
         if((ln.length > 2) && (ln.substr(0,2) != "//")) {
           tmp = ln.split(",");
-          calculaX(1,tmp[1],parseInt(tmp[0]));
+          calculaX(1,tmp[1].trim(),parseInt(tmp[0]));
         }
       }
 

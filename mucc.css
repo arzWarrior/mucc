@@ -9,6 +9,8 @@ input[type=file], input[type=button] {
 a {
   text-decoration: none;
 }
+
 .ui-autocomplete, .ui-autocomplete-input {
   font-family: monospace;
+  width: 280px;
 }
