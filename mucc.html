@@ -6,29 +6,30 @@
     <title>Minecraft Ultimate Recipe-Calculator</title>
     <link rel="icon" type="image/png" href="images/crafting.png">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="mucc.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   </head>
-  <body style="font-family: monospace; background-image: url(images/stone.png)">
+  <body>
     <div style="max-width: 740px; margin: auto; padding: 10px; background-color: white">
       <img src="images/bigcrafting.png" style="float: right">
       <h1>Minecraft Ultimate Crafting-Calculator</h1>
-      <input type="file" id="recipe_file" style="display:none"><a href="javascript:document.getElementById('recipe_file').click()" style="text-decoration: none"><img src="images/chest.png"> Carregar receitas</a> <span id="recipe_span"> (0 receitas carregadas)</span><br />
+      <input type="file" id="recipe_file"><a href="javascript:document.getElementById('recipe_file').click()"><img src="images/chest.png"> Carregar receitas</a> <span id="recipe_span"> (0 receitas carregadas)</span><br />
       <br/ >
       Itens para craftar:<br />
       <div>
         <input id="craft_input">
-        <input type="button" id="craft_add" style="display:none"><a href="javascript:document.getElementById('craft_add').click()" style="text-decoration: none"><img src="images/hopper.png"></a>
+        <input type="button" id="craft_add"><a href="javascript:document.getElementById('craft_add').click()"><img src="images/hopper.png"></a>
       </div>
       <div>
-        <textarea id="craft_area" style="width: 100%"></textarea>
+        <textarea id="craft_area" style="width: 100%; height: 46px"></textarea>
       </div>
       <br />
       Itens para descontar do cálculo: <i>"qtd,nome do item"</i><br />
       <div>
         <textarea id="chest_area" style="width: 100%"></textarea>
       </div>
-      <input type="button" id="calculate" style="display:none"><a href="javascript:document.getElementById('calculate').click()" style="text-decoration: none"><img src="images/sword.png"> Calcular!</a><br />
+      <input type="button" id="calculate"><a href="javascript:document.getElementById('calculate').click()"><img src="images/sword.png"> Calcular!</a><br />
       <br />
       <div style="min-height: 480px; line-height: 120%">
         <span id="calculate_span"></span>

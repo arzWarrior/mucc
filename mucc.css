@@ -1,0 +1,14 @@
+body {
+  font-family: monospace;
+}
+
+input[type=file], input[type=button] {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+}
+.ui-autocomplete, .ui-autocomplete-input {
+  font-family: monospace;
+}
