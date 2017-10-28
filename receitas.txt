@@ -79,7 +79,7 @@ Transfer Node (Hyper Energy),1,QED::Transfer Node (Energy),4|Bedrockium Ingot,1
 Transfer Node (Energy),1,QED::Gold Ingot,4|Transfer Node (Itens),4|Breadth-First Search Upgrade,1
 Breadth-First Search Upgrade,3,CT::Block of Redstone,6|Speed Upgrade,2|Depth-First Search Upgrade,1
 Depth-First Search Upgrade,3,CT::Block of Redstone,4|Speed Upgrade,3|Iron Ingot,2
-Solar Generator x8,1,CT::Solar Generator x1,8|Transfer Node (Energy)
+Solar Generator x8,1,CT::Solar Generator x1,8|Transfer Node (Energy),1
 Solar Generator x1,1,CT::Lapis Lazuli,2|Nether Quartz,3|Redstone,2|Block of Diamond,1|Furnace,1
 NanoSuit Bodyarmor,1,CT::Energy Crystal,1|Carbon Plate,8
 Energy Crystal,1,Compressor::Energium Dust,9

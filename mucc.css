@@ -10,6 +10,20 @@ a {
   text-decoration: none;
 }
 
+.craft {
+  margin-top: -1em;
+  float: right;
+  background-color: BurlyWood;
+  display: none;
+}
+
+.craft td {
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid black;
+}
+
 .ui-autocomplete, .ui-autocomplete-input {
   font-family: monospace;
   width: 280px;

@@ -35,7 +35,12 @@ window.onload = function() {
 
   // altera a cor de fundo
   function highlight() {
-    this.style.color = (this.style.color == "red" ? "black" : "red");
+    var dvs = document.getElementsByName("dv");
+
+    for(let d of dvs) {
+      d.children[0].style.display = ((d !== this) || (d.children[0].style.display == "block") ? "none" : "block");
+      d.style.color = ((d !== this) || (d.style.color == "red") ? "black" : "red");
+    }
   }
 
 
@@ -73,6 +78,7 @@ window.onload = function() {
 
       texto += qtd + "x " + r[NOME] + (qtdReal*r[QUANTIDADE] > qtd ? " (" + qtdReal*r[QUANTIDADE] + "x)" : "") + (r[ONDE_CRAFTAR] != "CT" ? " - " + r[ONDE_CRAFTAR] : "") + " <input type=\"checkbox\" name=\"cb\"><br />\n";
       texto += "<div name=\"dv\">\n";
+      texto += "<div class=\"craft\"><table><tr><td>1</td><td>2</td><td>3</td></tr><tr><td>4</td><td>5</td><td>6</td></tr><tr><td>7</td><td>8</td><td>9</td></tr></table></div>\n";
       for(let r2 of r[ITENS_NECESSARIOS])
         texto += "&nbsp;&nbsp;&nbsp;" + qtdReal*r2[QUANTIDADE] + "x " + r2[NOME] + "<br />\n";
 
