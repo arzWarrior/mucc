@@ -10,15 +10,24 @@ a {
   text-decoration: none;
 }
 
+.main {
+  max-width: 740px;
+  margin: auto;
+  padding: 10px;
+  background-color: white
+}
+
 .craft {
   margin-top: -1em;
   float: right;
   background-color: BurlyWood;
+  font-size: 80%;
+  color: black;
+  text-align: center;
   display: none;
 }
 
 .craft td {
-  text-align: center;
   width: 30px;
   height: 30px;
   border: 1px solid black;

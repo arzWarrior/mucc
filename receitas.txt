@@ -1,3 +1,17 @@
+// Vanila
+Iron Pickaxe,1,CT::Stick,2,58|Iron Ingot,3,123
+Wood Planks,4,CT::Wood,1
+Diamond Sword,1,CT::Diamond,2,25|Stick,1,8
+Stick,4,CT::Wood Planks,2,14
+Door,3,CT::Wood Planks,6,124578
+Block of Redstone,1,CT::Redstone,9,123456789
+Piston,1,CT::Wood Planks,3,123|Cobblestone,4,4679|Iron Ingot,1,5|Redstone,1,8
+Flower Pot,1,CT::Brick,3,135
+Brick,1,Furnace::Clay,1
+Furnace,1,CT::Cobblestone,8,12346789
+Iron Bars,16,CT::Iron Ingot,6,123456
+
+// Mods
 Basic Gas Tank,1,CT::Osmium Ingot,4|Redstone,4
 Thermal Evaporation Block,4,CT::Steel Ingot,4|Copper Ingot,1
 Thermal Evaporation Valve,1,CT::Advanced Control Circuit,1|Thermal Evaporation Block,4
@@ -39,11 +53,6 @@ Refined Obsidian Dust,1,Metallurgic Infuser::Diamond Dust,1|Obsidian Dust,1
 Chemical Washer,1,CT::Steel Casing,1|Bucket,1|Basic Gas Tank,1|Enriched Alloy,2|Basic Control Circuit,4
 Chemical Crystallizer,1,CT::Steel Casing,1|Atomic Alloy,2|Basic Gas Tank,2|Basic Control Circuit,4
 Basic Universal Cable,8,CT::Redstone,1|Steel Ingot,2
-Iron Pickaxe,1,CT::Stick,2|Iron Ingot,3
-Wood Planks,4,CT::Wood,1
-Diamond Sword,1,CT::Diamond,2|Stick,1
-Stick,4,CT::Wood Planks,2
-Door,3,CT::Wood Planks,6
 Reactor Casing,4,CT::Iron Ingot,4|Graphite Bar,4|Yellorium Ingot,1
 Reactor Glass,1,CT::Glass,2|Reactor Casing,1
 Reactor Controller,1,CT::Yellorium Ingot,2|Diamond,1|Redstone,1|Reactor Casing,4
@@ -64,16 +73,11 @@ Turbine Rotor Shaft,1,CT::Iron Ingot,2|Cyanite Ingot,1
 Turbine Rotor Blade,1,CT::Iron Ingot,2|Cyanite Ingot,1
 Crescent Hammer,1,CT::Iron Ingot,3|Tin Ingot,1
 Cyanite Reprocesssor,1,CT::Iron Ingot,1|Piston,2|Redstone,1|Yellorium Fuel Rod,1|Reactor Casing,4
-Block of Redstone,1,CT::Redstone,9
 Harvester,1,CT::Plastic Sheets,3|Shears,1|Factory Machine Block,1
 Factory Machine Block,3,CT::Plastic Sheets,3|Stone,3
 Plastic Sheets,4,CT::Raw Plastic,4
 Planter,1,CT::Plastic Sheets,3|Flower Pot,2|Piston,1|Factory Machine Block,1
-Piston,1,CT::Wood Planks,3|Cobblestone,4|Iron Ingot,1|Redstone,1
-Flower Pot,1,CT::Brick,3
-Brick,1,Furnace::Clay,1
 Sludge Boiler,1,CT::Plastic Sheets,3|Furnace,3|Factory Machine Block,1
-Furnace,1,CT::Cobblestone,8
 Solar Generator x64,1,CT::Solar Generator x8,8|Transfer Node (Hyper Energy),1
 Transfer Node (Hyper Energy),1,QED::Transfer Node (Energy),4|Bedrockium Ingot,1
 Transfer Node (Energy),1,QED::Gold Ingot,4|Transfer Node (Itens),4|Breadth-First Search Upgrade,1
@@ -132,7 +136,6 @@ Neutron Reflector,1,CT::Tin Dust,4|Pulverized Coal,4|Copper Plate,1
 QuantumSuit Helmet,1,CT::Reinforced Glass,2|Iridium Reinforced Plate,2|Advanced Control Circuit,2|Lapotron Crystal,1|NanoSuit Helmet,1|Scuba Helmet,1
 Iridium Reinforced Plate,1,CT::Iridium Ore,4|Advanced Alloy,4|Diamond,1
 Scuba Helmet,1,CT::Orange Dye,1|Glass,1|Iron Bars,1|Rubber Bar,4
-Iron Bars,16,CT::Iron Ingot,6
 QuantumSuit Bodyarmor,1,CT::Advanced Alloy,2|Iridium Reinforced Plate,4|NanoSuit Bodyarmor,1|Lapotron Crystal,1|Electric Jetpack,1
 Electric Jetpack,1,CT::Iron Item Casing,4|Glowstone,2|Advanced Control Circuit,1|BatBox,1
 BatBox,1,CT::Wood Planks,5|Insulated Tin Cable,1|RE-Battery,3

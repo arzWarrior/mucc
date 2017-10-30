@@ -44,6 +44,18 @@ window.onload = function() {
   }
 
 
+  // retorna as iniciais da string fornecida
+  function initials(nome) {
+    var initials = "";
+    var partes = nome.split(" ");
+
+    for(let p of partes)
+      initials += p.charAt(0);
+
+    return initials;
+  }
+
+
   // percorre o vetor e retorna a posição do item desejado ou -1
   function find(item, lista) {
     var i = 0;
@@ -69,20 +81,42 @@ window.onload = function() {
   // retorna texto com os itens necessários (apenas primeiro nível) para craftar a quantidade do item desejado
   function calcula1(ident, item, qtd) {
   
-    var texto = "", 
+    var texto = "", texto2 = "", graphic = ["","","","","","","","",""],
     tmp = find(item,recipes);
   
     if(tmp >= 0) {
+      var isGraphic = false;
       var r = recipes[tmp];
       var qtdReal = Math.ceil(qtd/r[QUANTIDADE]);
 
       texto += qtd + "x " + r[NOME] + (qtdReal*r[QUANTIDADE] > qtd ? " (" + qtdReal*r[QUANTIDADE] + "x)" : "") + (r[ONDE_CRAFTAR] != "CT" ? " - " + r[ONDE_CRAFTAR] : "") + " <input type=\"checkbox\" name=\"cb\"><br />\n";
-      texto += "<div name=\"dv\">\n";
-      texto += "<div class=\"craft\"><table><tr><td>1</td><td>2</td><td>3</td></tr><tr><td>4</td><td>5</td><td>6</td></tr><tr><td>7</td><td>8</td><td>9</td></tr></table></div>\n";
-      for(let r2 of r[ITENS_NECESSARIOS])
-        texto += "&nbsp;&nbsp;&nbsp;" + qtdReal*r2[QUANTIDADE] + "x " + r2[NOME] + "<br />\n";
+      texto += "<div name=\"dv\">\n<div class=\"craft\">\n";
 
-      texto += "</div>\n";
+      for(let r2 of r[ITENS_NECESSARIOS]) {
+        texto2 += "&nbsp;&nbsp;&nbsp;" + qtdReal*r2[QUANTIDADE] + "x " + r2[NOME] + "<br />\n";
+
+        // carregando a receita gráfica
+        for(let rg of r2[2]) {
+          graphic[rg-1] = initials(r2[NOME]);
+          isGraphic = true;
+        }
+      }
+
+      if(isGraphic) {
+        texto += (r[ONDE_CRAFTAR] != "CT" ? r[ONDE_CRAFTAR] + "<br />\n" : "Crafting Table<br />\n") + "<table>\n";
+
+        for(var x = 0; x < 3; x++) {
+          texto += "<tr>\n";
+          for(var y = 0; y < 3; y++) {
+            texto += "<td>" + graphic[(x*3)+y] + "</td>\n";
+          }
+          texto += "</tr>\n"
+        }
+
+        texto += "</table>\n";
+      }
+
+      texto += "</div>\n" + texto2 + "</div>\n";
     }
   
     else {
@@ -96,7 +130,7 @@ window.onload = function() {
   // função recursiva que carrega os vetores de itens e recursos necessários para craftar a quantidade do item desejado
   function calculaX(ident, item, qtd) {
     // exemplo de uma linha do vetor de receitas
-    // ["Piston",1,"Crafting Table",[["Wood Planks",3],["Cobblestone",4],["Redstone",1],["Iron Ingot",1]]]
+    // ["Piston",1,"Crafting Table",[["Wood Planks",3,[1,2,3]],["Cobblestone",4,[4,6,7,9]],["Redstone",1,[8]],["Iron Ingot",1,[5]]]]
     var tmp = find(item,recipes);
     if(tmp >= 0) {
       var r = recipes[tmp];
@@ -148,7 +182,7 @@ window.onload = function() {
   // carrega o arquivo de receitas
   recipe_file.addEventListener('change', function(e) {
     // exemplo de uma linha do arquivo de receitas
-    // Piston,1,CT::Wood Planks,3|Cobblestone,4|Iron Ingot,1|Redstone,1
+    // Piston,1,CT::Wood Planks,3,123|Cobblestone,4,4679|Redstone,1,8|Iron Ingot,1,5
     var file = recipe_file.files[0];
     var textType = /text.*/;
 
@@ -158,10 +192,14 @@ window.onload = function() {
       reader.onload = function(e) {
         var content = reader.result;
         var linhas = content.split("\n");
-        var temp, temp2, part_item;
+        var temp, temp2, temp3, part_item;
         var i = 0;
 
         for(let ln of linhas) {
+
+          // remover a quebra de linha do final
+          ln = ln.replace(/(\r\n|\n|\r)/gm,"");
+
           if((ln.length > 2) && (ln.substr(0,2) != "//")) {
 
             var part_recipe = [];
@@ -170,11 +208,20 @@ window.onload = function() {
             part_item = temp[0].split(",");
 
             for(let t of temp[1].split("|")) {
+
+              var part_graphic = [];
+
               temp2 = t.split(",");
-              part_recipe.push([temp2[0].trim(),parseInt(temp2[1])]);
+
+              // ver se tem receita gráfica
+              if(temp2.length == 3)
+                for(let rg of Array.from(temp2[2]))
+                  part_graphic.push(parseInt(rg));
+
+              part_recipe.push([temp2[0].trim(),parseInt(temp2[1]),part_graphic]);
             }
 
-            // ["Piston",1,"Crafting Table",[["Wood Planks",3],["Cobblestone",4],["Redstone",1],["Iron Ingot",1]]]
+            // ["Piston",1,"CT",[["Wood Planks",3,[1,2,3]],["Cobblestone",4,[4,6,7,9]],["Redstone",1,[8]],["Iron Ingot",1,[5]]]]
             recipes.push([part_item[0].trim(),parseInt(part_item[1]),part_item[2].trim(),part_recipe]);
 
             crafting.push(part_item[0].trim());
@@ -229,6 +276,10 @@ window.onload = function() {
       linhas = chest_area.value.split("\n");
       
       for(let ln of linhas) {
+
+        // remover a quebra de linha do final
+        ln = ln.replace(/(\r\n|\n|\r)/gm,"");
+
         if((ln.length > 2) && (ln.substr(0,2) != "//")) {
           tmp = ln.split(",");
           itens.push([tmp[1].trim(), parseInt("-" + tmp[0]), parseInt(tmp[0]), 0]);
@@ -239,6 +290,10 @@ window.onload = function() {
       linhas = craft_area.value.split("\n");
 
       for(let ln of linhas) {
+
+        // remover a quebra de linha do final
+        ln = ln.replace(/(\r\n|\n|\r)/gm,"");
+
         if((ln.length > 2) && (ln.substr(0,2) != "//")) {
           tmp = ln.split(",");
           calculaX(1,tmp[1].trim(),parseInt(tmp[0]));
