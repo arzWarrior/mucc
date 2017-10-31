@@ -39,7 +39,7 @@ window.onload = function() {
 
     for(let d of dvs) {
       d.children[0].style.display = ((d !== this) || (d.children[0].style.display == "block") ? "none" : "block");
-      d.style.color = ((d !== this) || (d.style.color == "red") ? "black" : "red");
+      d.style.backgroundColor = ((d !== this) || (d.style.backgroundColor == "powderblue") ? "transparent" : "powderblue");
     }
   }
 
@@ -47,7 +47,7 @@ window.onload = function() {
   // retorna as iniciais da string fornecida
   function initials(nome) {
     var initials = "";
-    var partes = nome.split(" ");
+    var partes = nome.replace("(","").replace("-"," ").split(" ");
 
     for(let p of partes)
       initials += p.charAt(0);
